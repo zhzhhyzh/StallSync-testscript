@@ -1,0 +1,12 @@
+UPDATE psordpar
+SET psordsts = 'D'
+WHERE psordsts = 'G' AND psordgra < 450;
+
+UPDATE psordpar
+SET psordsts = 'C'
+WHERE psordsts = 'G' AND psordgra > 450;
+
+UPDATE pstrxpar
+SET pstrxsts = 'C'
+WHERE pstrxsts = 'N';
+
