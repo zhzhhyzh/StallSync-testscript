@@ -2,13 +2,19 @@ import requests
 import random
 import json
 
+# Available member
+# member1, member2, member3, member5 "KR","MM"
+#pujin, zhzhhyzh, Gandy "4F","JW","PR"
+# kenny, lwk, lwk2 "MM","4F"
+#mbrtest "MM" //4f or kr
+# cold //the cold start no record
 # --- Config ---
 DOMAIN = "http://localhost:5040"
-USERNAME = "Gandy"
+USERNAME = "member1"
 PASSWORD = "123456"
 API_KEY = "c871651f-bdf3-4795-b826-cc3cfb80075a"
 
-for run in range(1, 100):
+for run in range(1, 145):
     print(f"\n🔁 ===== RUN {run} =====")
 
     # --- Step 1: Login ---
@@ -45,13 +51,14 @@ for run in range(1, 100):
     }
 
     # --- Step 2: Create cart 5 times ---
-    psmrcuid = random.choice(["KR", "MM", "4F", "JW", "PR"])
+    # psmrcuid = random.choice(["KR", "MM", "4F", "JW", "PR"])
+    psmrcuid = random.choice(["MM"])
     print(f"📦 Using psmrcuid: {psmrcuid}")
 
     for i in range(5):
         product_num = random.randint(1, 7)
         psprduid = f"{psmrcuid}{str(product_num).zfill(6)}"
-        qty = random.randint(1, 5)
+        qty = random.randint(1, 3)
 
         cart_payload = {
             "psmrcuid": psmrcuid,

@@ -4,7 +4,7 @@ import json
 
 # --- Config ---
 DOMAIN = "http://localhost:5040"
-USERNAME = "zhzhhyzh"
+USERNAME = "member1"
 PASSWORD = "123456"
 API_KEY = "c871651f-bdf3-4795-b826-cc3cfb80075a"
 LIMIT = 10000  # orders per page
@@ -69,10 +69,12 @@ while True:
             continue
 
         # 90% chance to give rating above 3
-        if random.random() <= 0.9:
-            rating = round(random.uniform(3.1, 5.0), 1)
+        if random.random() <= 0.7:
+            rating = round(random.uniform(4.1, 5.0), 1)
+        elif random.random() <= 0.9:
+            rating = round(random.uniform(3.0, 4.0), 1)
         else:
-            rating = round(random.uniform(1.0, 3.0), 1)
+            rating = round(random.uniform(1.0,2.9), 1)
 
         review_payload = {
             "psorduid": psorduid,
